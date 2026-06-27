@@ -6,7 +6,7 @@ const fs      = require('fs');
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
-const PYTHON_API = 'http://localhost:5000/predict';
+const PYTHON_API = process.env.PYTHON_API || 'http://localhost:5000/predict';
 
 router.post('/predict', upload.single('image'), async (req, res) => {
   if (!req.file) {
