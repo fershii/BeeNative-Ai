@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abejas Nativas</title>
+    <link href="/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="module" src="/js/components/navbar.js" defer></script>
+    <script type="module" src="/js/components/footer.js" defer></script>
+    <script type="module" src="/js/components/galeria.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/trigona.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/tetragonisca.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/tetragona.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/scaptotrigona.js" defer></script>
+
+</head>
+<body class="bg-[#283B0A]">
+
+    <!-- Navbar -->
+    <nav-bar></nav-bar>
+
+    <!-- Contenido de la página -->
+    <galeria-section></galeria-section>
+   
+    <!-- Footer -->
+    <footer-section></footer-section>
+
+    <div
+    id="visorImagen"
+    class="fixed inset-0 bg-black/80 hidden justify-center items-center z-50">
+
+    <button
+        onclick="cerrarImagen()"
+        class="absolute top-6 right-8 text-white text-5xl hover:text-red-400">
+        &times;
+    </button>
+
+    <div class="w-[85vw] h-[85vh] overflow-hidden">
+        <img
+            id="imagenGrande"
+            class="w-full h-full object-contain transition-transform duration-150 select-none">
+    </div>
+
+</div>
+
+</body>
+</html>

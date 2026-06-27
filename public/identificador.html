@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abejas Nativas</title>
+    <link href="/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="module" src="/js/components/navbar.js" defer></script>
+    <script type="module" src="/js/components/footer.js" defer></script>
+    <script type="module" src="/js/components/galeria.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/trigona.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/tetragonisca.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/tetragona.js" defer></script>
+    <script type="module" src="/js/components/especiesComponents/scaptotrigona.js" defer></script>
+
+</head>
+<body class="bg-[#283B0A]">
+
+    <!-- Navbar -->
+    <nav-bar></nav-bar>
+
+<section class="bg-[#283B0A] px-6 py-12">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Card -->
+    <div class="relative rounded-2xl overflow-hidden border-2 border-[#FAE45E] h-[414px] md:h-[514px]">
+
+      <!-- Video de fondo -->
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="img/video_identificador.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+
+      <!-- Capa oscura -->
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <!-- Contenido -->
+      <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+        <p class="text-[#FAE45E] text-sm font-semibold mb-2">
+          La naturaleza tiene nombre. Nosotros te ayudamos a descubrirlo.
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-[#FAE45E] leading-tight mb-6">
+          Conoce la especie<br>detrás de cada observación.
+        </h1>
+
+        <div class="flex gap-4 justify-center">
+            <div class="flex gap-4 justify-center">
+            <a
+                href="#subir-imagen"
+                class="bg-[#FAE45E] text-green-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition"
+            >
+                Identificar Ahora
+            </a>
+            </div>
+
+            <button class="border-2 border-[#FAE45E] text-[#FAE45E] px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 hover:text-green-900 transition">
+                Aprender Más
+            </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    <!-- Upload Section -->
+<section id="subir-imagen" class="bg-[#283B0A] px-8 py-12">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-[#fae55eab] rounded-2xl p-12 border-4 border-dashed border-[#fde12c] flex flex-col items-center justify-center min-h-[414px] md:min-h-[514px]">
+
+      <!-- Estado: default -->
+      <div id="state-default" class="flex flex-col items-center gap-4">
+        <img src="/img/abeja.png" alt="Foto de ejemplo" class="object-cover rounded-lg h-[204px]">
+        <p class="text-gray-800 text-center text-base max-w-md">
+          Sube una foto nítida enfocando solo la abeja nativa observada, en un formato .jpg o .png.
+        </p>
+        <input type="file" id="file-input" accept="image/jpeg,image/png" class="hidden">
+        <button onclick="document.getElementById('file-input').click()"
+          class="bg-[#FAE45E] text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition flex items-center gap-2">
+           Subir imagen
+        </button>
+      </div>
+
+      <!-- Estado: preview -->
+      <div id="state-preview" class="hidden flex-col items-center gap-4 w-full">
+        <img id="preview-img" class="max-h-52 rounded-xl object-cover border-4 border-[#fde12c]" alt="Vista previa">
+        <div class="flex gap-3">
+          <button id="btn-classify"
+            class="bg-[#FAE45E] text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition">
+             Identificar abeja
+          </button>
+          <button onclick="resetState()"
+            class="border-2 border-[#1a3a05] text-[#1a3a05] px-5 py-2 rounded-lg font-semibold hover:bg-black/10 transition">
+            Cambiar imagen
+          </button>
+        </div>
+      </div>
+
+      <!-- Estado: cargando -->
+      <div id="state-loading" class="hidden flex-col items-center gap-4">
+        <div class="w-10 h-10 border-4 border-white/30 border-t-[#3a6e10] rounded-full animate-spin"></div>
+        <p class="text-gray-800 font-semibold">Analizando imagen...</p>
+      </div>
+
+      <!-- Estado: resultado -->
+      <div id="state-result" class="hidden flex-col items-center gap-6 w-full">
+        <div class="flex flex-col md:flex-row gap-6 w-full items-start justify-center">
+
+          <!-- Imagen -->
+          <img id="result-img"
+            class="w-full max-w-xl h-auto rounded-xl object-cover border-4 border-[#fde12c]"
+            alt="Imagen analizada">
+
+          <!-- Info derecha -->
+          <div class="bg-white/90 rounded-xl p-5 flex-1 max-w-md border-2 border-[#fde12c]">
+            <p class="text-sm text-gray-600 font-semibold mb-1">Especie identificada</p>
+            <p id="result-species" class="text-2xl font-bold text-[#1a3a05] mb-2"></p>
+            <p id="result-confidence" class="text-sm text-gray-600 mb-3"></p>
+
+            <p class="text-sm font-semibold text-gray-700 mb-1">Top 3 predicciones:</p>
+            <ol id="result-top3" class="text-sm text-gray-700 list-decimal list-inside mb-4 space-y-0.5"></ol>
+
+            <!-- Barras -->
+            <div id="prob-bars"></div>
+
+            <div class="mt-6 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4">
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">⚠️</span>
+                <div>
+                  <h3 class="font-semibold text-amber-900">Aviso importante</h3>
+                  <p class="mt-1 text-sm text-gray-700">
+                    La predicción generada por la inteligencia artificial es una herramienta
+                    de apoyo y puede contener errores. Los resultados no sustituyen la
+                    identificación taxonómica realizada por un especialista. Si requiere una
+                    identificación precisa para fines científicos, de investigación o
+                    conservación, consulte a un <strong>taxónomo</strong> o a un
+                    <strong>especialista en abejas sin aguijón</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="resetState()"
+          class="bg-[#FAE45E] text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition">
+          Analizar otra imagen
+        </button>
+      </div>
+
+      <!-- Estado: error -->
+      <div id="state-error" class="hidden flex-col items-center gap-4">
+        <p id="error-msg" class="bg-red-100 text-red-800 px-4 py-2 rounded-lg text-sm"></p>
+        <button onclick="resetState()"
+          class="border-2 border-[#1a3a05] text-[#1a3a05] px-5 py-2 rounded-lg font-semibold hover:bg-black/10">
+          Intentar de nuevo
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <script src="/js/components/especiesComponents/identificador.js"></script>
+  
+   
+    <!-- Footer -->
+    <footer-section></footer-section>
+
+
+
+</body>
+</html>

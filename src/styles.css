@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hero-bg {
+    @apply bg-gradient-to-br from-[#283B0A] to-[5C802];
+  }
+
+  .section-bg {
+    @apply bg-gradient-to-br from-[#283B0A] to-[5C802];
+  }
+
+  .card-bee {
+    @apply bg-gradient-to-b from-yellow-100 to-yellow-50 transition-all duration-300;
+  }
+
+  .card-bee:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-yellow-400 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-yellow-500 transition;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-yellow-400 text-yellow-400 px-6 py-3 rounded-lg font-bold hover:bg-yellow-400 hover:text-gray-800 transition;
+  }
+}

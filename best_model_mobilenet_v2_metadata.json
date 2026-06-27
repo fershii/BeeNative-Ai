@@ -1,0 +1,57 @@
+{
+    "architecture": "mobilenet_v2",
+    "class_names": [
+        "NTP",
+        "PTB",
+        "SCP",
+        "TCV",
+        "TFCD",
+        "TFVT",
+        "TTA",
+        "TTP"
+    ],
+    
+    "num_classes": 8,
+    "img_size": 224,
+    "metrics": {
+        "accuracy": 0.925,
+        "precision": 0.9268,
+        "recall": 0.9229,
+        "f1_score": 0.9236,
+        "auc_macro": 0.9892,
+        "especificidad": 0.9893
+    },
+    "all_models_comparison": {
+        "Accuracy": {
+            "inception_resnet_v2": 0.905,
+            "efficientnetv2_s": 0.835,
+            "mobilenet_v2": 0.925
+        },
+        "Precisi\u00f3n": {
+            "inception_resnet_v2": 0.9187,
+            "efficientnetv2_s": 0.8477,
+            "mobilenet_v2": 0.9268
+        },
+        "Recall": {
+            "inception_resnet_v2": 0.899,
+            "efficientnetv2_s": 0.8362,
+            "mobilenet_v2": 0.9229
+        },
+        "Especificidad": {
+            "inception_resnet_v2": 0.9862,
+            "efficientnetv2_s": 0.9763,
+            "mobilenet_v2": 0.9893
+        },
+        "F1-Score": {
+            "inception_resnet_v2": 0.9046,
+            "efficientnetv2_s": 0.8379,
+            "mobilenet_v2": 0.9236
+        },
+        "AUC (macro)": {
+            "inception_resnet_v2": 0.9638,
+            "efficientnetv2_s": 0.9732,
+            "mobilenet_v2": 0.9892
+        }
+    }
+    
+}
