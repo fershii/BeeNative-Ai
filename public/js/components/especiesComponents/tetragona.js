@@ -97,9 +97,13 @@ class Tetragona extends HTMLElement {
           class="card-item w-full h-1/3 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center text-sm font-semibold text-gray-600 shadow-sm cursor-pointer"
         >
           
-          <span class="uppercase">
-          <img src="/img/abeja.png" alt="Icono de abeja" class="w-full h-full object-cover rounded-lg">
-          </span>
+            <div class="w-24 h-24 flex items-center justify-center overflow-hidden">
+            <img
+              src="/img/iconabeja.svg"
+              alt="Trigona Fulviventris"
+              class="w-full h-full object-contain scale-150"
+            >
+          </div>
           <span class="text-xs font-bold text-green-700 uppercase">Más especies pronto...</span>
 
         </div>
@@ -112,13 +116,21 @@ class Tetragona extends HTMLElement {
 
     // Función scoped: busca elementos dentro del mismo custom element que disparó el evento
     if (!window.tetragonaSeleccionar) {
-      window.tetragoniscaSeleccionar = function(tarjetaClickeada, event) {
+      window.tetragonaSeleccionar = function(tarjetaClickeada, event) {
         // Encontrar el componente raíz al que pertenece la tarjeta clickeada
         const root = tarjetaClickeada.closest('tetragona-section');
         if (!root) return;
 
         const tarjetaGrande = root.querySelector('#panel-principal > div');
         if (!tarjetaGrande || tarjetaClickeada === tarjetaGrande) return;
+
+        // No intercambiar si la tarjeta no tiene información
+        if (
+            tarjetaClickeada.getAttribute('data-title') === '-' ||
+            tarjetaClickeada.getAttribute('data-title') === ''
+        ) {
+            return;
+        }
 
         // Guardar datos de la tarjeta grande
         const datosGrande = {

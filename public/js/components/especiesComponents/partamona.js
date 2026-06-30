@@ -1,4 +1,4 @@
-class Trigona extends HTMLElement {
+class Partamona extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <style>
@@ -8,7 +8,7 @@ class Trigona extends HTMLElement {
       .info-panel::-webkit-scrollbar { display: none; }
     </style>
 
-  <p class="text-center text-[#FAE45E] text-5xl font-semibold justify-center mb-4">Género Trigona</p>
+  <p class="text-center text-[#FAE45E] text-5xl font-semibold justify-center mb-4">Género Partamona</p>
 
   <section class="bg-[#283B0A] flex items-center justify-center min-h-screen p-2">
 
@@ -27,49 +27,56 @@ class Trigona extends HTMLElement {
           <span class="text-xs font-bold uppercase tracking-wider text-green-700 block mb-2">Especie Seleccionada</span>
 
           <h2 id="info-titulo" class="info-field text-2xl font-bold text-gray-800 mb-3">
-            Trigona ferricauda
+            Partamona bilineata
           </h2>
 
           <p id="info-descripcion" class="info-field text-sm text-gray-700 leading-relaxed mb-3">
-            Abeja de color oscuro, robusta y de comportamiento defensivo. Construye nidos en cavidades naturales y utiliza abundante propóleo para proteger la colonia.
+            Se caracteriza por construir entradas de nido elaboradas con barro, resinas y fibras vegetales. Posee comportamiento territorial.
           </p>
 
           <div class="mt-3 space-y-2">
             <div>
               <span class="text-xs font-bold text-green-700 uppercase">Tamaño</span>
-              <p id="info-tamaño" class="info-field text-sm text-gray-700">7-9 mm</p>
+              <p id="info-tamaño" class="info-field text-sm text-gray-700">6-8 mm.</p>
             </div>
             <div>
               <span class="text-xs font-bold text-green-700 uppercase">Distribución</span>
-              <p id="info-distribucion" class="info-field text-sm text-gray-700">Panamá, Costa Rica, Nicaragua y otras regiones tropicales de Centroamérica.</p>
+              <p id="info-distribucion" class="info-field text-sm text-gray-700">
+                México, Centroamérica y norte de Sudamérica.
+              </p>
             </div>
             <div>
               <span class="text-xs font-bold text-green-700 uppercase">Importancia</span>
-              <p id="info-importancia" class="info-field text-sm text-gray-700">Polinizadora de especies forestales y plantas nativas tropicales.</p>
+              <p id="info-importancia" class="info-field text-sm text-gray-700">
+                Polinizadora de especies silvestres y agrícolas en ecosistemas tropicales.
+              </p>
             </div>
             <div>
               <span class="text-xs font-bold text-green-700 uppercase">Nivel de Manejo</span>
-              <p id="info-nivelmanejo" class="info-field text-sm text-gray-700">Medio a difícil debido a su comportamiento defensivo.</p>
+              <p id="info-nivelmanejo" class="info-field text-sm text-gray-700">
+                Medio.
+              </p>
             </div>
           </div>
         </div>
       </div>
+      
 
       <!-- COLUMNA 2: PANEL PRINCIPAL (tarjeta grande) -->
       <div id="panel-principal" class="w-1/2 h-full flex items-center justify-center">
 
         <div
           id="card-A"
-          onclick="abrirImagen(this); window.trigonaSeleccionar(this, event)"
-          data-title="Trigona ferricauda"
-          data-desc="beja de color oscuro, robusta y de comportamiento defensivo. Construye nidos en cavidades naturales y utiliza abundante propóleo para proteger la colonia."
-          data-size="7-9 mm"
-          data-distribution="Panamá, Costa Rica, Nicaragua y otras regiones tropicales de Centroamérica."
-          data-importance="Polinizadora de especies forestales y plantas nativas tropicales."
-          data-management="Medio a difícil debido a su comportamiento defensivo."
+          onclick="abrirImagen(this); window.partamonaSeleccionar(this, event)"
+          data-title="Partamona bilineata"
+          data-desc="Se caracteriza por construir entradas de nido elaboradas con barro, resinas y fibras vegetales. Posee comportamiento territorial."
+          data-size="6-8 mm."
+          data-distribution="México, Centroamérica y norte de Sudamérica."
+          data-importance="Polinizadora de especies silvestres y agrícolas en ecosistemas tropicales."
+          data-management="Medio."
           class="card-item w-full h-full bg-white border-2 border-amber-400 rounded-lg flex flex-col items-center justify-center text-3xl font-semibold text-gray-600 shadow-md cursor-pointer"
         >
-          <img src="/img/Trigona ferricauda.jpg" alt="Foto de ejemplo" class="w-full h-full object-cover rounded-lg">
+          <img src="/img/Partamona bilineata.jpg" alt="Partamona bilineata" class="w-full h-full object-cover rounded-lg">
         </div>
 
       </div>
@@ -80,35 +87,26 @@ class Trigona extends HTMLElement {
         <!-- Tarjeta B -->
         <div
           id="card-B"
-          onclick="window.trigonaSeleccionar(this, event)"
-          data-title="Trigona fulviventris"
-          data-desc="Presenta tonalidades marrones y anaranjadas en el abdomen. Es una especie activa y defensiva que emplea resinas para proteger su colonia."
-          data-size="6-8 mm."
-          data-distribution="Desde México hasta Sudamérica, incluyendo Panamá."
-          data-importance="Contribuye a la polinización de numerosas especies vegetales silvestres."
-          data-management="Medio a difícil, ideal para meliponicultura por su adaptabilidad."
+          onclick="window.partamonaSeleccionar(this, event)"
+          data-title="-"
+          data-desc="-"
+          data-size="-"
+          data-distribution="-"
+          data-importance="-"
+          data-management="-"
           class="card-item w-full h-1/3 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center text-sm font-semibold text-gray-600 shadow-sm cursor-pointer"
         >
-          <img src="/img/Trigona fulviventris.jpg" alt="Trigona Fulviventris" class="w-full h-full object-cover rounded-lg">
+          
+            <div class="w-24 h-24 flex items-center justify-center overflow-hidden">
+            <img
+              src="/img/iconabeja.svg"
+              alt="icono de abeja"
+              class="w-full h-full object-contain scale-150"
+            >
+          </div>
+          <span class="text-xs font-bold text-green-700 uppercase">Más especies pronto...</span>
+
         </div>
-
-        <!-- Tarjeta C -->
-        <div
-          id="card-C"
-          onclick="window.trigonaSeleccionar(this, event)"
-          data-title="Trigona corvina"
-          data-desc="Abeja completamente negra, muy conocida por su fuerte comportamiento defensivo. Puede morder cuando el nido es perturbado."
-          data-size="8-10 mm."
-          data-distribution="México, Centroamérica y norte de Sudamérica."
-          data-importance="Polinizadora de árboles forestales, cultivos y plantas silvestres."
-          data-management="Difícil para principiantes."
-          class="card-item w-full h-1/3 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center text-sm font-semibold text-gray-600 shadow-sm cursor-pointer"
-        >
-          <img src="/img/Trigona corvina.jpg" alt="Trigona Corvina" class="w-full h-full object-cover rounded-lg">
-        </div>
-
-        <!-- Tarjeta D -->
-
 
       </div>
     </div>
@@ -116,9 +114,14 @@ class Trigona extends HTMLElement {
   </section>
     `;
 
-   if (!window.trigonacaSeleccionar) {
-      window.trigonaSeleccionar = function(tarjetaClickeada) {
-        const tarjetaGrande = document.querySelector('#panel-principal > div');
+    // Función scoped: busca elementos dentro del mismo custom element que disparó el evento
+    if (!window.partamonaSeleccionar) {
+      window.partamonaSeleccionar = function(tarjetaClickeada, event) {
+        // Encontrar el componente raíz al que pertenece la tarjeta clickeada
+        const root = tarjetaClickeada.closest('partamona-section');
+        if (!root) return;
+
+        const tarjetaGrande = root.querySelector('#panel-principal > div');
         if (!tarjetaGrande || tarjetaClickeada === tarjetaGrande) return;
 
         // No intercambiar si la tarjeta no tiene información
@@ -152,8 +155,8 @@ class Trigona extends HTMLElement {
         };
 
         // Intercambiar contenido visual
-          tarjetaGrande.innerHTML = datosPequena.innerHTML;  // contenido real de la tarjeta clickeada
-          tarjetaClickeada.innerHTML = datosGrande.innerHTML; // contenido real de la tarjeta grande
+        tarjetaGrande.innerHTML = datosPequena.innerHTML;
+        tarjetaClickeada.innerHTML = datosGrande.innerHTML;
 
         // Intercambiar atributos data en tarjeta grande
         tarjetaGrande.setAttribute('data-title', datosPequena.title);
@@ -171,26 +174,26 @@ class Trigona extends HTMLElement {
         tarjetaClickeada.setAttribute('data-importance', datosGrande.importance);
         tarjetaClickeada.setAttribute('data-management', datosGrande.management);
 
-        // Actualizar panel de información con fade
+        // Actualizar panel de información buscando dentro del mismo componente
         const campos = [
-          { id: 'info-titulo', valor: datosPequena.title },
-          { id: 'info-descripcion', valor: datosPequena.desc },
-          { id: 'info-tamaño', valor: datosPequena.size },
-          { id: 'info-distribucion', valor: datosPequena.distribution },
-          { id: 'info-importancia', valor: datosPequena.importance },
-          { id: 'info-nivelmanejo', valor: datosPequena.management },
+          { selector: '#info-titulo',       valor: datosPequena.title },
+          { selector: '#info-descripcion',  valor: datosPequena.desc },
+          { selector: '#info-tamaño',       valor: datosPequena.size },
+          { selector: '#info-distribucion', valor: datosPequena.distribution },
+          { selector: '#info-importancia',  valor: datosPequena.importance },
+          { selector: '#info-nivelmanejo',  valor: datosPequena.management },
         ];
 
         // Fade out
-        campos.forEach(({ id }) => {
-          const el = document.getElementById(id);
+        campos.forEach(({ selector }) => {
+          const el = root.querySelector(selector);
           if (el) el.style.opacity = '0';
         });
 
         // Actualizar texto y fade in
         setTimeout(() => {
-          campos.forEach(({ id, valor }) => {
-            const el = document.getElementById(id);
+          campos.forEach(({ selector, valor }) => {
+            const el = root.querySelector(selector);
             if (el) {
               el.textContent = valor;
               el.style.opacity = '1';
@@ -247,4 +250,5 @@ visor.addEventListener("wheel", function(e){
     imagenGrande.style.transform = `scale(${zoom})`;
 
 },{ passive:false });
-customElements.define('trigona-section', Trigona);
+
+customElements.define('partamona-section', Partamona);
