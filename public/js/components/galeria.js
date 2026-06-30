@@ -23,6 +23,13 @@ class Galeria extends HTMLElement {
       <!-- Scaptotrigona Section -->
       <scaptotrigona-section></scaptotrigona-section>
 
+      <!-- Nannotrigona Section -->
+      <nannotrigona-section></nannotrigona-section>
+
+      <!-- Partamona Section -->
+      <partamona-section></partamona-section>
+
+
 
 </section>
     `;
