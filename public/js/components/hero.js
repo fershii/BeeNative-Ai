@@ -18,7 +18,7 @@ class Hero extends HTMLElement {
                 </p>
                 <div class="flex gap-4">
                     <button class="bg-[#FAE45E] text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition">
-                    Identificar Abeja
+                     <a href="/identificador.html">Identificar</a>
                     </button>
                     <button class="border-2 border-[#FAE45E] text-[#FAE45E] px-8 py-3 rounded-lg font-bold hover:bg-[#FAE45E] hover:text-gray-800 transition">
                      <a href="/especies.html">Conocer</a>
